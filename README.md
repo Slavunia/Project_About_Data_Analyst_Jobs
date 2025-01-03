@@ -3,7 +3,7 @@
 
 🔍 SQL queries? Check them out here: [sql_queries Folder](/sql_queries/)
 
-📊 Data visualization in Python? Find here: [python_visualizations Folder](/python_visualizations/)
+📊 Data visualization in Python? Find here: [code_for_visualizations](/code_for_visualizations.ipynb/)
 
 # Background
 
@@ -890,7 +890,7 @@ plt.show()
 *Pie charts showing the breakdown of employment types in data analysis job postings globally and in Germany:*
 
 ![Employment Types Global](python_visualizations/08_employment_type_globally.png)
-![Employment Types Germany](python_visualizations/08_employment_type_Germany.png)
+![Employment Types Germany](python_visualizations/08_employment_type_germany.png)
 
 Here's the breakdown of the most common employment types in data analysis job postings in 2023:
 
