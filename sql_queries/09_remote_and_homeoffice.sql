@@ -7,9 +7,10 @@ how flexible the industry is in regards of remote and homeoffice jobs
 */
 
 /* The following queries, which search for job postings with remote work 
-and home office options, reveal that postings labeled as 'remote work' 
-are identical to those labeled as 'home office.' Therefore, only 
-'remote work' is analyzed further, as it encompasses 'home office' roles.
+and work-form-home options, show that job postings labeled as "Anywhere" 
+(remote work) are identical to those labeled as "work-form-home." 
+Therefore, only "remote work" is analyzed further, as it encompasses 
+"work-form-home" roles.
 */
 
 -- globally
@@ -60,7 +61,7 @@ FULL OUTER JOIN query2 q2
     ON q1.job_id = q2.job_id
 ORDER BY q1.job_id;
 
--- Calculating how frequently remote work and homeoffice are offered globally and in Germany
+-- Calculating how frequently remote work and work-from-home  are offered globally and in Germany
 
 SELECT
     -- Global market (remote)

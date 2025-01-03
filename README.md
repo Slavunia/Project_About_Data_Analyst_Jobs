@@ -1,5 +1,5 @@
 # Introduction
-📊 Explore the global and German data job market! This project dives into data analyst roles, highlighting 💰 top-paying jobs, 🔥 in-demand skills, 📈 skills linked to higher salaries, and 📚 the best skills to learn. We also cover 🎓 degree requirements, 👩‍💻 junior positions and internships, 🧑‍💻🏢 common employment types, 🌍 remote work opportunities, and 🏢 which companies and 🌐 job search platforms drive demand. Finally, we examine 📅 when data analyst job postings peak, offering a comprehensive overview of the field.
+📊 Explore the global and German data job market! This project dives into data analyst roles, highlighting 💰 top-paying jobs, 🔥 in-demand skills, 📈 skills linked to higher salaries, and 📚 the best skills to learn. We also cover 🎓 degree requirements, 👩‍💻 junior positions and internships, 🧑‍💻🏢 common employment types, and 🌍 remote work opportunities. Finally, we examine 📅 when data analyst job postings peak, offering a comprehensive overview of the field.
 
 🔍 SQL queries? Check them out here: [sql_queries Folder](/sql_queries/)
 
@@ -21,10 +21,8 @@ This project uses **data from Luke Barousse's** [SQL Course](https://lukebarouss
 6. [Is a degree required for data analyst roles? 🎓🤔](#6-is-a-degree-required-for-data-analyst-roles)  
 7. [How many junior positions and internships are available, and what is their pay? 🎓🧑‍💻](#7-how-many-junior-positions-and-internships-are-available-and-what-is-their-pay)  
 8. [What are the most common employment types in data analysis? 🧑‍💻📍](#8-what-are-the-most-common-employment-types-in-data-analysis)  
-9. [How common are remote and work-from-home job offers in data analysis? 🌍](#9-how-common-are-remote-and-work-from-home-job-offers-in-data-analysis)  
-10. [Which companies seek the most data analysts? 🏢💵](#10-which-companies-seek-the-most-data-analysts)  
-11. [Which platforms are most used to post data analyst jobs? 🌐🔍](#11-which-platforms-are-most-used-to-post-data-analyst-jobs)  
-12. [When are data analyst job postings most frequent? 📅📈](#12-when-are-data-analyst-job-postings-most-frequent)  
+9. [How common are remote and work-from-home job offers in data analysis? 🌍](#9-how-common-are-remote-and-work-from-home-job-offers-in-data-analysis)   
+10. [When are data analyst job postings most frequent? 📅📈](#10-when-are-data-analyst-job-postings-most-frequent)  
 
 # Tools I Used
 For my deep dive into the data analyst job market, I harnessed the power of several key tools:
@@ -456,7 +454,6 @@ SELECT
     COUNT(CASE WHEN job_no_degree_mention = TRUE THEN 1 END) AS no_degree_required_count_global,
     -- Total postings globally
     COUNT(*) AS total_postings_global,
-   
     -- Percentage of job postings with no degree mentioned globally
     ROUND(
         (COUNT(CASE WHEN job_no_degree_mention = TRUE THEN 1 END) * 100.0) / COUNT(*), 
@@ -907,7 +904,7 @@ Here's the breakdown of the most common employment types in data analysis job po
 This query shows the prevalence of remote work and work-from-home 👩‍💻 in data analysis jobs, helping analysts determine if they should target remote opportunities. 
 
 ```sql
-/* The following queries, which search for job postings with remote work and home office options, reveal that postings labeled as 'remote work' are identical to those labeled as 'home office.' Therefore, only 'remote work' is analyzed further, as it encompasses 'home office' roles.
+/* The following queries, which search for job postings with remote work and work-form-home options, show that job postings labeled as "Anywhere" (remote work) are identical to those labeled as "work-form-home." Therefore, only "remote work" is analyzed further, as it encompasses "work-form-home" roles.
 */
 
 -- globally
@@ -958,7 +955,7 @@ FULL OUTER JOIN query2 q2
     ON q1.job_id = q2.job_id
 ORDER BY q1.job_id;
 
--- Calculating how frequently remote work and homeoffice are offered globally and in Germany
+-- Calculating how frequently remote work and work-from-home are offered globally and in Germany
 
 SELECT
     -- Global market (remote)
@@ -983,7 +980,7 @@ SELECT
 FROM job_postings_fact
 WHERE job_title_short = 'Data Analyst';
 ```
-*Table showing the number of remote and work-from-home offers in data analysis and their percentage globally and in Germany:*
+*Table showing the number of remote and work-from-home offers in data analysis and their percentage in 2023, both globally and in Germany:*
 
 | **Region**    | **Remote Count** | **Total Postings** | **Percentage Remote** |
 |---------------|------------------|--------------------|-----------------------|
@@ -995,146 +992,7 @@ Here is the breakdown of the prevalence of remote and work-from-home job offers:
 - **Remote jobs**, which are **the same as work-from-home jobs**, are those with a job location of 'Anywhere.'
 - Remote and work-from-home job offers in data analysis are **more prevalent globally (7%)** compared to **Germany (4%)**.
 
-### 10. Which companies seek the most data analysts? 
-
-This query identifies companies with the highest demand for data analysts 🏢💵, helping job seekers target top employers and develop skills aligned with leading business sectors.
-
-```sql
--- globally
-SELECT
-companies.name as company_name,
-COUNT (job_postings.job_id) AS number_of_postings
-FROM
-job_postings_fact AS job_postings
-INNER JOIN company_dim AS companies ON job_postings.company_id = companies.company_id
-WHERE job_title_short = 'Data Analyst'
-GROUP BY company_name
-ORDER BY number_of_postings DESC
-LIMIT 25;
-
--- Germany
-SELECT
-companies.name as company_name,
-COUNT (job_postings.job_id) AS number_of_postings
-FROM
-job_postings_fact AS job_postings
-INNER JOIN company_dim AS companies ON job_postings.company_id = companies.company_id
-WHERE job_title_short = 'Data Analyst' AND
-job_country = 'Germany'
-GROUP BY company_name
-ORDER BY number_of_postings DESC
-LIMIT 25;
-```
-
-*Table showing top 10 companies globally that had the highest demand for data analysts in 2023:*
-| Company                      | Number of Postings | Business Sector            |
-|------------------------------|--------------------|----------------------------|
-| Emprego                      | 1121               | Recruitment & Staffing      |
-| Robert Half                  | 1047               | Recruitment & Staffing      |
-| Insight Global               | 892                | Recruitment & Staffing      |
-| Citi                         | 875                | Financial Services          |
-| Dice                         | 604                | Recruitment & Staffing      |
-| UnitedHealth Group           | 592                | Healthcare & Insurance      |
-| Confidenziale                 | 549                | Recruitment & Staffing      |
-| Get It Recruit - Information Technology | 510     | Information Technology     |
-| Michael Page                 | 468                | Recruitment & Staffing      |
-| Randstad                     | 462                | Recruitment & Staffing      |
-
-
-*Table showing top 10 companies in Germany that had the highest demand for data analysts in 2023:*
-| Company                                 | Number of Postings | Business Sector                           |
-|-----------------------------------------|--------------------|-------------------------------------------|
-| Workwise GmbH                           | 53                 | Human Resources/Recruitment               |
-| EON Energie Deutschland                 | 41                 | Energy                                    |
-| IDS GmbH - Analysis and Reporting Services | 38              | Consulting/Analysis                       |
-| Deloitte                                | 37                 | Consulting/Professional Services          |
-| Deutsche Bahn AG                        | 34                 | Transportation/Railway                    |
-| Bosch Group                             | 32                 | Engineering/Manufacturing                 |
-| PwC Deutschland                         | 31                 | Consulting/Professional Services          |
-| Peroptyx                                | 29                 | Technology/Recruitment                    |
-| Stepstone GmbH                          | 29                 | Job Marketplace/Recruitment               |
-| Amadeus FiRe                            | 28                 | Recruitment/Staffing                      |
-
-Here's the breakdown of companies that were seeking the most data analysts in 2023:
-
-**Globally:**
-- **IT and Technology Sectors:** Companies like **Robert Half (1047), Insight Global (892), Dice (604)**, and **SynergisticIT (410)** highlight the strong demand for Data Analysts in the IT and technology sectors.
-- **Financial Services:** **Citi (875), S&P Global (320), Deloitte (298)**, and **Accenture (371)** show a significant demand for data professionals in the financial services and consulting industries.
-- **Healthcare:** **UnitedHealth Group (592)** and **Centene Corporation (365)** emphasize the rising demand for data analysts in the healthcare and insurance industries.
-- **E-commerce and Consumer Goods:** Companies like **Shopee (290)** and **PepsiCo (285)** highlight a growing need for data analysts in the e-commerce and consumer goods sectors.
-
-**Germany:**
-- **IT and Consulting Sectors**: A large number of postings come from **Deloitte (19)**, **PwC (31)**, and **Amadeus FiRe (28)**, indicating high demand for Data Analysts in consulting, technology, and finance.
-- **Engineering and Technology**: **Bosch Group (32)**, **Bosch Gruppe (24)**, and **Deutsche Bahn AG (34)** reflect strong demand for Data Analysts in engineering, transportation, and industrial sectors.
-- **Retail and E-Commerce**: Companies like **Stepstone GmbH (29)** and **Vinted (22)** indicate the demand for Data Analysts in e-commerce and online job platforms.
-- **Energy and Insurance**: **EON Energie Deutschland (41)** and **Helvetia (20)** show the growing importance of data analysis in the energy and insurance sectors.
-
-### 11. Which platforms are most used to post data analyst jobs?
-
-By analyzing the most used platforms, this query helps junior analysts optimize their job search by targeting the best platforms. 
-
-```sql
--- globally
-SELECT
-    job_via as posting_platform,
-    COUNT (job_id) AS number_of_postings
-FROM
-job_postings_fact AS job_postings
-WHERE job_title_short = 'Data Analyst'
-GROUP BY job_via
-ORDER BY number_of_postings DESC
-LIMIT 25;
-
--- Germany
-SELECT
-    job_via as posting_platform,
-    COUNT (job_id) AS number_of_postings
-FROM
-job_postings_fact AS job_postings
-WHERE job_title_short = 'Data Analyst'
-AND job_country = 'Germany'
-GROUP BY job_via
-ORDER BY number_of_postings DESC
-LIMIT 25;
-```
-
-*Table showing the top 10 most used platforms to post data analyst jobs globally:*
-
-| Job Posting Platform                  | Number of Postings |
-|---------------------------------------|--------------------|
-| via LinkedIn                          | 41,852             |
-| via BeBee                              | 25,888             |
-| via Trabajo.org                        | 15,568             |
-| via Indeed                             | 12,961             |
-| via Recruit.net                        | 5,965              |
-| via ZipRecruiter                       | 5,021              |
-| via Snagajob                           | 3,418              |
-| via Jobs Trabajo.org                  | 2,486              |
-| via BeBee Singapore                    | 2,239              |
-| via Jobijoba                           | 1,892              |
-
-*Table showing the top 10 most used platforms to post data analyst jobs in Germany:*
-
-| Job Posting Platform             | Number of Postings |
-|----------------------------------|--------------------|
-| via BeBee                        | 1,270              |
-| via LinkedIn                     | 1,249              |
-| via XING                         | 606                |
-| via Indeed                       | 445                |
-| via Stepstone                    | 402                |
-| via BeBee Deutschland            | 341                |
-| via StepStone                     | 285                |
-| via Recruit.net                  | 227                |
-| via Jobs Trabajo.org             | 201                |
-| via WJHL Jobs                    | 117                |
-
-Here's the breakdown of the most used platforms to post data analyst jobs globally and in Germany:
-
-- **Tailor applications for top platforms**: **LinkedIn and BeBee** are not tech-specific, but feature many data analyst roles. Optimize your LinkedIn profile for visibility and networking.
-- **German platforms**: In Germany, prioritize XING, BeBee Deutschland and Stepstone alongside LinkedIn for job opportunities. 
-- **Use Job Aggregators**: Platforms like **Indeed, Recruit.net, and Trabajo.org** gather listings from multiple sources, expanding job search options.
-
-### 12. When are data analyst job postings most frequent? 
+### 10. When are data analyst job postings most frequent? 
 
 This query shows when data analyst job postings peak, helping job seekers time their applications for maximum impact.
 
@@ -1151,7 +1009,7 @@ ORDER BY month;
 ```
 *Charts showing monthly job postings for data analysts in 2023 globally and in Germany:*
 
-![Monthly Job Postings](python_visualizations/12_top_postings_months.png)
+![Monthly Job Postings](python_visualizations/10_top_postings_months.png)
 
 Here's the breakdown of Monthly Job Postings for Data Analysts in 2023 globally and in Germany:
 
@@ -1225,18 +1083,7 @@ From the analysis, several general insights emerged:
     - **Global**: 7% of roles are remote or work-from-home.
     - **Germany**: 4% remote roles or work-from-home.
 
-
-10. **Which Companies Seek the Most Data Analysts? 🏢💵**
-    - **Global**: Top employers include **Robert Half**, **Citi**, and **UnitedHealth Group**.
-    - **Germany**: High demand from **Deloitte**, **Bosch**, and **PwC**.
-
-
-11. **Which Platforms Are Most Used to Post Data Analyst Jobs? 🌐🔍**
-    - **Global**: **LinkedIn** and **BeBee** dominate.
-    - **Germany**: **XING**, **BeBee Deutschland**, and **LinkedIn** are top platforms.
-
-
-12. **When Are Data Analyst Job Postings Most Frequent? 📅📈**
+10. **When Are Data Analyst Job Postings Most Frequent? 📅📈**
     - **Global**: Highest in **January**.
     - **Germany**: Peak in **October**, with a slowdown in December.
 
