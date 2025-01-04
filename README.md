@@ -1,6 +1,6 @@
 # Project About Data Analysis Jobs
 
-German version: [Deutsche Version hier](README_in_german.md)
+German version: [Deutsche Version hier](README_in_German.md)
 
 # Introduction
 📊 Explore the global and German data job market! This project dives into data analyst roles, highlighting 💰 top-paying jobs, 🔥 in-demand skills, 📈 skills linked to higher salaries, and 📚 the best skills to learn. We also cover 🎓 degree requirements, 👩‍💻 junior positions and internships, 🧑‍💻🏢 common employment types, and 🌍 remote work opportunities. Finally, we examine 📅 when data analyst job postings peak, offering a comprehensive overview of the field.
