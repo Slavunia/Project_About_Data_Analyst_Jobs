@@ -1,3 +1,7 @@
+# Project About Data Analysis Jobs
+
+German version: [Deutsche Version hier](README_in_german.md)
+
 # Introduction
 📊 Explore the global and German data job market! This project dives into data analyst roles, highlighting 💰 top-paying jobs, 🔥 in-demand skills, 📈 skills linked to higher salaries, and 📚 the best skills to learn. We also cover 🎓 degree requirements, 👩‍💻 junior positions and internships, 🧑‍💻🏢 common employment types, and 🌍 remote work opportunities. Finally, we examine 📅 when data analyst job postings peak, offering a comprehensive overview of the field.
 
@@ -133,11 +137,11 @@ Here's the breakdown of the top data analyst jobs in 2023 globally and in German
 - **Senior Roles**: High demand for senior leadership positions, with employers like **Citigroup** and **Meta** offering top salaries.
 
 **Germany:**
-- **Salary Range**: Roles range from **€111,175** to **€200,000**, with top employers like **Bosch** and **Fraunhofer-Gesellschaft**.
+- **Salary Range**: Roles range from **$111,175** to **$200,000**, with top employers like **Bosch** and **Fraunhofer-Gesellschaft**.
 - **Leadership Focus**: Strong demand for leadership roles like **Head of Data Analytics**.
 
 **Global vs. Germany Comparison**
-- **Salary Difference**: Global salaries are significantly higher, with global roles reaching **$650,000** vs. **€200,000** in Germany.
+- **Salary Difference**: Global salaries are significantly higher, with global roles reaching **$650,000** vs. **$200,000** in Germany.
 - **Role Specialization**: Global market leans toward senior leadership, while Germany focuses more on specialized engineering and tech roles.
 
 ### 2. Skills for Top Paying Jobs
@@ -713,7 +717,7 @@ plt.savefig('07_salary_distribution_cleaned.png', dpi=300, bbox_inches='tight', 
 plt.show()
 ```
 
-*Table presenting the number of junior roles in data analysis and their percentage in 2023 globally and in Germany:*
+*Table presenting the number of junior roles and internships in data analysis and their percentage in 2023 globally and in Germany:*
 
 | Metric                           | Global Market       | Germany Market      |
 |----------------------------------|---------------------|---------------------|
@@ -770,7 +774,7 @@ WHERE job_title_short = 'Data Analyst'
 AND job_schedule_type IS NOT NULL
 AND job_country = 'Germany';
 ```
-The following code is for global market analysis only; see the [code_for_visualizations](/python_visualizations/code_for_visualizations.ipynb) for the Germany market analysis.
+The following code is for global market analysis only; see the [code_for_visualizations](/code_for_visualizations.ipynb) for the Germany market analysis.
 
 ```python 
 import pandas as pd
@@ -989,7 +993,6 @@ WHERE job_title_short = 'Data Analyst';
 
 Here is the breakdown of the prevalence of remote and work-from-home job offers:
 
-- **Remote jobs**, which are **the same as work-from-home jobs**, are those with a job location of 'Anywhere.'
 - Remote and work-from-home job offers in data analysis are **more prevalent globally (7%)** compared to **Germany (4%)**.
 
 ### 10. When are data analyst job postings most frequent? 
@@ -1014,7 +1017,7 @@ ORDER BY month;
 Here's the breakdown of Monthly Job Postings for Data Analysts in 2023 globally and in Germany:
 
 - **January** stands out globally as the **highest** month for job postings, likely due to companies' increased hiring activity in the new year.
-- **October** is the peak month in Germany, suggesting a strong push towards year-end hiring, possibly influenced by organizational needs for Q4.
+- **October** is the **peak** month in Germany, suggesting a strong push towards year-end hiring, possibly influenced by organizational needs for Q4.
 - Both regions saw a notable **decline** in **December**, suggesting a common slowdown in recruitment efforts due to holidays and year-end budget cycles.
 
 # What I Learned
@@ -1043,7 +1046,7 @@ From the analysis, several general insights emerged:
 
  1. **Top Paying Data Analyst Jobs 💸🌍**
     - **Global** roles range from **$285K to $650K**, mostly in tech and finance.
-    - **Germany**: roles range from **€111K to €200K**, with a focus on leadership.
+    - **Germany**: roles range from **$111K to $200K**, with a focus on leadership.
 
 
  2. **Skills for Top Paying Jobs 🎓💼**
